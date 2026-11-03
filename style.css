@@ -1,0 +1,109 @@
+/*
+Theme Name: WoT Theme
+Author: Max van Rooijen
+Description: Custom thema over tanks voor WordPress Custom 1
+Version: 1.0
+Text Domain: wot-theme
+*/
+
+:root {
+    --c-bg: #1b1f16;
+    --c-surface: #272c20;
+    --c-text: #e8e6d9;
+    --c-muted: #a9a78f;
+    --c-accent: #c9a227;
+    --c-accent-text: #1b1f16;
+    --radius: 6px;
+    --max-width: 1100px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    background: var(--c-bg);
+    color: var(--c-text);
+    font-family: "Segoe UI", system-ui, sans-serif;
+    line-height: 1.6;
+}
+
+a { color: var(--c-accent); }
+img { display: block; max-width: 100%; height: auto; }
+h1, h2, h3 { line-height: 1.2; text-transform: uppercase; letter-spacing: 0.04em; }
+
+/* Layout */
+.site-header, .site-main, .site-footer {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/* Header en navigatie */
+.site-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    border-bottom: 2px solid var(--c-accent);
+}
+.site-title { font-size: 1.5rem; font-weight: 700; text-decoration: none; text-transform: uppercase; }
+.site-nav ul { display: flex; flex-wrap: wrap; gap: 1rem; margin: 0; padding: 0; list-style: none; }
+.site-nav a { color: var(--c-text); text-decoration: none; }
+.site-nav a:hover, .site-nav .current-menu-item a { color: var(--c-accent); }
+
+/* Hero en knop */
+.hero { padding: 3rem 0; text-align: center; }
+.button, .filter-bar button {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    background: var(--c-accent);
+    color: var(--c-accent-text);
+    border: 0;
+    border-radius: var(--radius);
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Kaartenraster (tanks en berichten) */
+.tank-grid, .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+.tank-card, .post-card {
+    background: var(--c-surface);
+    border-radius: var(--radius);
+    overflow: hidden;
+    padding-bottom: 1rem;
+}
+.tank-card h3, .post-card h3, .tank-meta, .post-meta, .post-terms, .post-card p {
+    padding: 0 1rem;
+    margin: 0.5rem 0;
+}
+.tank-meta, .post-meta, .post-terms { color: var(--c-muted); font-size: 0.9rem; }
+.tank-card a, .post-card a { text-decoration: none; }
+
+/* Detailpagina's */
+.tank-single, .post-single, .page-single { max-width: 760px; margin: 0 auto; }
+.tank-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0.5rem; padding: 0; list-style: none; }
+.tank-stats li { background: var(--c-surface); padding: 0.75rem; border-radius: var(--radius); }
+.related-tanks { margin-top: 3rem; }
+
+/* Filterbalk */
+.filter-bar { display: flex; flex-wrap: wrap; align-items: end; gap: 1rem; margin-bottom: 2rem; }
+.filter-bar select { display: block; padding: 0.4rem; min-width: 150px; }
+
+/* Archief- en auteurskoppen, 404 */
+.archive-header, .author-header { margin-bottom: 2rem; }
+.error-404 { text-align: center; padding: 3rem 0; }
+
+/* Footer */
+.site-footer { margin-top: 3rem; border-top: 2px solid var(--c-accent); color: var(--c-muted); text-align: center; }
+
+/* Smalle schermen */
+@media (max-width: 600px) {
+    .site-header { flex-direction: column; align-items: flex-start; }
+    .hero { padding: 2rem 0; }
+}
